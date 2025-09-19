@@ -1,0 +1,19 @@
+{# templates/home/index.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+
+</head>
+<body>
+<h1>Hello {{ name }}!</h1>
+<p>Welcome to your first MVC-powered page. The variable <code>name</code> was passed from the Controller to this Twig template.</p>
+
+<nav>
+    <a href="{{ path('homepage') }}">Home</a> |
+    <a href="{{ path('about_page') }}">About (JSON)</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# config/routes.yaml
+
+# This is the route for /hello defined in YAML
+hello_route:
+    path: /hello
+    controller: App\Controller\PageController::hello
+    # You can restrict methods here (optional)
+    # methods: GET

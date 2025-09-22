@@ -1,0 +1,55 @@
+{# templates/article/list.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles List - Twig Demo{% endblock %}
+
+{% block body %}
+    <h1>Articles List</h1>
+    <p>Showing {{ articles|length }} articles</p>
+
+    {# 1. LOOP through articles #}
+    {% for article in articles %}
+        <article style="border: 1px solid #ccc; margin: 20px 0; padding: 15px;">
+            <h2>
+                {# Loop variables: loop.index gives the current iteration #}
+                Article #{{ loop.index }}:
+                {# Filter: |capitalize makes first letter uppercase #}
+                {{ article.title|capitalize }}
+            </h2>
+
+            {# 2. CONDITIONAL: Check if content is empty #}
+            {% if article.content is empty %}
+                <p style="color: red; font-style: italic;">No content available for this article.</p>
+            {% else %}
+                <p>{{ article.content }}</p>
+            {% endif %}
+
+            <div class="article-meta">
+                <strong>Author:</strong>
+                {# Filters can be chained: |lower then |capitalize #}
+                {{ article.author|lower|capitalize }}<br>
+
+                <strong>Published:</strong>
+                {# 3. DATE FILTER: Format the date #}
+                {{ article.date|date('d/m/Y') }}
+                (or: {{ article.date|date('F j, Y') }})<br>
+
+                <strong>Title Length:</strong>
+                {{ article.title|length }} characters<br>
+
+                <strong>Shout Title:</strong>
+                {{ article.title|upper }}
+            </div>
+
+            {# Loop variables demo #}
+            <small>
+                {% if loop.first %}← This is the first article{% endif %}
+                {% if loop.last %}← This is the last article{% endif %}
+            </small>
+        </article>
+    {% else %}
+        {# This block executes if the articles array is EMPTY #}
+        <p>No articles found.</p>
+    {% endfor %}
+{% endblock %}

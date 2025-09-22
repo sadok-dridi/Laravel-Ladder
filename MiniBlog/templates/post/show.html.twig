@@ -1,0 +1,18 @@
+{# templates/post/show.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+{# Display the data for the single 'post' passed from the controller #}
+<article>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+</article>
+
+<hr>
+<a href="{{ path('homepage') }}">&larr; Back to all posts</a>
+</body>
+</html>

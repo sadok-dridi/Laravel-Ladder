@@ -1,0 +1,24 @@
+{# templates/post/index.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Mini Blog</title>
+</head>
+<body>
+<h1>Welcome to my Mini Blog</h1>
+
+<h2>All Posts:</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{{ path('post_show', {id: post.id}) }}">
+                {{ post.title }}
+            </a>
+        </li>
+    {% else %}
+        <li>No posts have been written yet.</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

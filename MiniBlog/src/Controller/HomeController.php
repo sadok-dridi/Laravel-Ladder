@@ -9,11 +9,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'homepage')] // This is the Attribute that defines the route!
+    #[Route('/home', name: 'home_demo')] // This is the Attribute that defines the route!
     public function index(): Response
     {
-        return $this->render('home/index.html.twig', [
-            'name' => 'Symfony Learner' // This is the data we are passing
+        // Instead of rendering 'home/index.html.twig', we now render 'home.html.twig'
+        // which extends our base template
+        return $this->render('home.html.twig', [
+            // We can still pass variables to the template!
+            'featured_post_count' => 3
         ]);
     }
     #[Route('/about', name: 'about_page')]

@@ -1,0 +1,29 @@
+{# templates/home.html.twig #}
+
+{# This is the most important line: it declares this template inherits from base.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# Override the 'title' block from the parent template #}
+{% block title %}
+    Welcome to My Blog! - {{ parent() }}
+{% endblock %}
+
+{# Override the 'body' block from the parent template #}
+{% block body %}
+    {# You can include the parent block's content if you want, using {{ parent() }} #}
+
+    <section class="hero">
+        <h2>Welcome to our Symfony Blog</h2>
+        <p>This is our beautiful homepage, using template inheritance!</p>
+    </section>
+
+    <section class="featured-posts">
+        <h3>Latest Posts</h3>
+        <p>This is where your blog posts would be listed.</p>
+        <ul>
+            <li>Post One</li>
+            <li>Post Two</li>
+            <li>Post Three</li>
+        </ul>
+    </section>
+{% endblock %}
